@@ -127,7 +127,56 @@ form input {
   margin: 0 auto;
 
   padding: 4rem 20rem;
-  background-color: rgb(236, 236, 236);
-  box-shadow: 0.1rem 0 0.2rem rgb(0, 0, 0, 0.2),
-    -0.1rem 0 0.2rem rgb(0, 0, 0, 0.2);
+  background-color: rgb(255, 255, 255);
+  /* box-shadow: 0.1rem 0 0.2rem rgb(0, 0, 0, 0.2),
+    -0.1rem 0 0.2rem rgb(0, 0, 0, 0.2); */
+}
+
+.line {
+  background-color: rgb(20, 20, 137);
+  height: 0.4rem;
+  margin: 3rem 0;
+}
+
+.result-container h3 {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+
+.result-container h4 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-style: italic;
+}
+.result-container a {
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  display: inline-block;
+  margin: 1rem 1.5rem 2rem 0rem;
+}
+.phonetic {
+  font-size: 1.6rem;
+  margin: 1rem 0 0 1rem;
+  list-style: none;
+  font-weight: 800;
+}
+
+.def-list {
+  margin-bottom: 2rem;
+}
+
+.def-list li {
+  font-size: 1.6rem;
+  color: black;
+  line-height: 1.7;
+  font-family: sans-serif;
+  margin-top: 1rem;
+  font-weight: 800;
+}
+
+.def-list p {
+  font-size: 1.7rem;
+  margin-left: 1rem;
+  font-family: sans-serif;
+  font-style: italic;
 }

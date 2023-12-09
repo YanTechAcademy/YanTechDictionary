@@ -4,10 +4,12 @@ const form = document.querySelector("form");
 const formInput = document.querySelector(".word-input");
 const searchedWordEl = document.querySelector(".searched-word");
 const soundBtn = document.querySelector(".sound-logo");
+const resultContainer = document.querySelector(".result-container");
 
 // activating the form by the clicking on the trigger button
 trigger.addEventListener("click", () => {
   form.classList.add("active");
+  formInput.focus();
   trigger.style.display = "none";
 });
 
@@ -22,6 +24,7 @@ form.addEventListener("submit", (e) => {
 
   // cupturing the input word
   let word = formInput.value;
+  formInput.value = "";
 
   // calling the sendRequest function and passing the input word
   sendRequest(word);
@@ -37,6 +40,8 @@ async function sendRequest(inputWord) {
 
     // converting the response into json
     let data = await res.json();
+
+    console.log(data);
 
     // calling the output word funtion to ouput the typed word
     displayWord(searchedWordEl, data[0].word);
@@ -58,6 +63,86 @@ async function sendRequest(inputWord) {
 
     // calling the getSoundUrl and passing the sound url
     getSoundUrl(data[0].phonetics[audioIndex].audio);
+
+    // Formating the result within the result container
+
+    resultContainer.innerHTML = `
+
+      <h3>Pronunciation</h3>
+
+      <ul class="phonetic">
+        <li>${data[0].phonetic}</li>
+      </ul>
+
+      <div class="line"></div>
+
+    `;
+
+    // the example variable
+    let example = "";
+    let synonym = "";
+    let antonym = "";
+
+    // loop through the result and getting partof speeches
+
+    for (i = 0; i < data[0].meanings.length; i++) {
+      resultContainer.innerHTML += `
+        <h3>${data[0].meanings[i].partOfSpeech}</h3>
+
+
+      `;
+      // resultContainer.innerHTML += "<ol>";
+
+      // example Loop
+
+      for (j = 0; j < data[0].meanings[i].definitions.length; j++) {
+        example =
+          data[0].meanings[i].definitions[j].example === undefined
+            ? ""
+            : data[0].meanings[i].definitions[j].example;
+
+        resultContainer.innerHTML += `
+        <div class="def-list">
+          <li>${data[0].meanings[i].definitions[j].definition}</li>
+
+          <p class="example">${example}</p>
+        </div>
+          
+
+        `;
+      }
+
+      // Synonym Loop
+      resultContainer.innerHTML += `<h4>Synomys:</h4>`;
+      for (k = 0; k < data[0].meanings[i].synonyms.length; k++) {
+        synonyms =
+          data[0].meanings[i].synonyms[k] === undefined
+            ? ""
+            : data[0].meanings[i].synonyms[k];
+        resultContainer.innerHTML += `
+
+        <a href="#" class="synonym" data-synonym='${data[0].meanings[i].synonyms[k]}'>[ ${data[0].meanings[i].synonyms[k]} ]</a>
+         
+          
+        `;
+      }
+
+      // Antonym Loop
+      resultContainer.innerHTML += `<h4>Antonyms:</h4>`;
+      for (q = 0; q < data[0].meanings[i].antonyms.length; q++) {
+        antonym =
+          data[0].meanings[i].antonyms[q] === undefined
+            ? ""
+            : data[0].meanings[i].antonyms[q];
+        resultContainer.innerHTML += `
+   
+        <a href="#" class="antonym" data-antonym='${data[0].meanings[i].antonyms[q]}'>[ ${data[0].meanings[i].antonyms[q]} ] </a>
+             
+           `;
+      }
+
+      resultContainer.innerHTML += `<div class="line"></div>`;
+    }
   } catch (er) {
     alert(`Sorry, we could not find the word ${inputWord}, try another word !`);
   }
@@ -82,3 +167,25 @@ function getSoundUrl(url) {
   // creating the Audio object and passing the audio url
   audioElement = new Audio(url);
 }
+
+// const antonym =
+//   document.querySelector(".antonym") === null
+//     ? ""
+//     : document.querySelector(".antonym");
+
+// antonym.addEventListener("click", (e) => {
+//   antonymData = antonym.getAttribute("data-antonym");
+
+//   sendRequest(antonymData);
+// });
+
+// const synonym =
+//   document.querySelector(".synonym") === null
+//     ? ""
+//     : document.querySelector(".synonym");
+
+// synonym.addEventListener("click", (e) => {
+//   synonymData = synonym.getAttribute("data-synonym");
+
+//   sendRequest(synonymData);
+// });
