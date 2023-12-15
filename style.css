@@ -101,12 +101,179 @@ form input {
   align-items: center;
   padding: 1rem 10rem;
   height: 7vh;
+  position: relative;
 }
 
 .audio-container i {
   font-size: 3rem;
   cursor: pointer;
 }
+
+.control-btn {
+  position: absolute;
+  right: 10rem;
+}
+
+
+.loader-container{
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) rotate(45deg);
+
+  animation: loader 1s linear infinite;
+  transition: opacity 2s;
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.loader-container.remove{
+ 
+  opacity: 0;
+  visibility: hidden;
+
+}
+
+.loader-container span{
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  animation: rotate 1s linear infinite;
+}
+
+.loader-container span:nth-child(1){
+  background-color: brown;
+  top: 0;
+  left: 0;
+}
+
+.loader-container span:nth-child(2){
+  background-color: rgb(36, 12, 12);
+  right: 0;
+  top: 0;
+}
+
+.loader-container span:nth-child(3){
+  background-color: rgb(42, 165, 155);
+  bottom: 0;
+  right: 0;
+}
+
+.loader-container span:nth-child(4){
+  background-color: rgb(157, 165, 42);
+  bottom: 0;
+  left: 0;
+}
+@keyframes loader {
+  0%{
+    width: 10rem;
+    height: 10rem;
+  }
+  10%{
+    width: 10rem;
+    height: 10rem;
+  }
+  50%{
+    width: 15rem;
+    height: 15rem;
+  }
+
+  90%{
+    width: 10rem;
+    height: 10rem;
+  }
+
+  100%{
+    width: 10rem;
+    height: 10rem;
+  }
+
+}
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0);
+    
+  }
+  10%{
+    transform: rotate(0);
+  }
+  50%{
+    transform: rotate(90deg);
+  }
+
+  90%{
+    transform: rotate(90deg);
+  }
+
+  100%{
+    transform: rotate(90deg);
+  }
+
+}
+
+
+
+/* 
+.resume-logo, .pause-logo{
+  display: none;
+}
+
+.play-logo {
+  display: inline-block;
+}
+
+.play-logo.hide{
+  display: none;
+}
+
+.play-logo.hide + .pause-logo{
+  display: inline-block;
+}
+
+
+.pause-logo.hide {
+  display: none;
+}
+
+.pause-logo.hide + .resume-logo{
+  display: inline-block;
+}
+
+
+.resume-logo.hide {
+  display: none;
+} */
+
+/* .resume-logo.hide ~ .pause-logo{
+  display: inline-block;
+} */
+
+/* .play-logo.show ~ .resume-logo {
+  display: none;
+} */
+/* 
+.pause-logo.show {
+  display: inline-block;
+}
+
+.pause-logo.show ~ .play-logo,
+.pause-logo.show ~ .resume-logo {
+  display: none;
+}
+
+.resume-logo.show {
+  display: inline-block;
+}
+
+.resume-logo.show ~ .play-logo,
+.resume-logo.show ~ .pause-logo {
+  display: none !important;
+} */
 
 .searched-word {
   font-size: 2rem;
@@ -128,6 +295,7 @@ form input {
 
   padding: 4rem 20rem;
   background-color: rgb(255, 255, 255);
+  position: relative;
   /* box-shadow: 0.1rem 0 0.2rem rgb(0, 0, 0, 0.2),
     -0.1rem 0 0.2rem rgb(0, 0, 0, 0.2); */
 }
