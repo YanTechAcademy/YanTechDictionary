@@ -114,8 +114,7 @@ form input {
   right: 10rem;
 }
 
-
-.loader-container{
+.loader-container {
   width: 10rem;
   height: 10rem;
   position: absolute;
@@ -128,95 +127,87 @@ form input {
   transition: opacity 2s;
   opacity: 1;
   visibility: visible;
-
 }
 
-.loader-container.remove{
- 
+.loader-container.remove {
   opacity: 0;
   visibility: hidden;
-
 }
 
-.loader-container span{
+.loader-container span {
   width: 5rem;
   height: 5rem;
   position: absolute;
   animation: rotate 1s linear infinite;
 }
 
-.loader-container span:nth-child(1){
+.loader-container span:nth-child(1) {
   background-color: brown;
   top: 0;
   left: 0;
 }
 
-.loader-container span:nth-child(2){
+.loader-container span:nth-child(2) {
   background-color: rgb(36, 12, 12);
   right: 0;
   top: 0;
 }
 
-.loader-container span:nth-child(3){
+.loader-container span:nth-child(3) {
   background-color: rgb(42, 165, 155);
   bottom: 0;
   right: 0;
 }
 
-.loader-container span:nth-child(4){
+.loader-container span:nth-child(4) {
   background-color: rgb(157, 165, 42);
   bottom: 0;
   left: 0;
 }
 @keyframes loader {
-  0%{
+  0% {
     width: 10rem;
     height: 10rem;
   }
-  10%{
+  10% {
     width: 10rem;
     height: 10rem;
   }
-  50%{
+  50% {
     width: 15rem;
     height: 15rem;
   }
 
-  90%{
+  90% {
     width: 10rem;
     height: 10rem;
   }
 
-  100%{
+  100% {
     width: 10rem;
     height: 10rem;
   }
-
 }
 
 @keyframes rotate {
-  0%{
-    transform: rotate(0);
-    
-  }
-  10%{
+  0% {
     transform: rotate(0);
   }
-  50%{
+  10% {
+    transform: rotate(0);
+  }
+  50% {
     transform: rotate(90deg);
   }
 
-  90%{
+  90% {
     transform: rotate(90deg);
   }
 
-  100%{
+  100% {
     transform: rotate(90deg);
   }
-
 }
-
-
 
 /* 
 .resume-logo, .pause-logo{
@@ -347,4 +338,103 @@ form input {
   margin-left: 1rem;
   font-family: sans-serif;
   font-style: italic;
+}
+
+@media (max-width: 1220px) {
+  html {
+    font-size: 50%;
+  }
+
+  .header {
+    height: auto;
+    padding: 2rem 5rem;
+  }
+
+  .header-container {
+    padding: 2rem 5rem;
+  }
+
+  .result-container {
+    width: 80%;
+    padding: 4rem 0;
+  }
+
+  .phonetic {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  html {
+    font-size: 40%;
+  }
+
+  .header {
+    height: auto;
+    padding: 2rem 2rem;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+    position: relative;
+  }
+}
+
+@media (max-width: 780px) {
+  html {
+    font-size: 35%;
+  }
+
+  /* .result-container {
+    font-size: 3rem !important;
+  } */
+
+  .header {
+    height: auto;
+    padding: 2rem 2rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+
+  .logo-box {
+    font-size: 3rem;
+  }
+
+  .form-group {
+    margin-top: 3rem;
+  }
+
+  form input {
+    max-width: 60rem;
+    font-size: 2.5rem;
+  }
+
+  .audio-container {
+    padding: 2rem 5rem;
+    height: auto;
+  }
+
+  .result-container {
+    width: 90%;
+    padding: 4rem 0;
+    font-size: 4rem !important;
+  }
+
+  .result-container h3 {
+    font-size: 4rem !important;
+  }
+
+  .search-trigger {
+    right: 3rem;
+  }
+
+  .def-list li {
+    font-size: 2rem;
+  }
 }
