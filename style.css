@@ -10,6 +10,7 @@
 html {
   font-size: 62.5%;
   font-family: "Barlow", sans-serif;
+  scroll-behavior: smooth;
   /* font-family: "Dosis", sans-serif; */
 }
 
@@ -340,6 +341,30 @@ form input {
   font-style: italic;
 }
 
+.up-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 7rem;
+  height: 7rem;
+  background-color: rgb(0, 0, 40);
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  font-size: 3rem;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+.up-btn:hover {
+  background-color: black;
+  border-radius: 0;
+}
+
 @media (max-width: 1220px) {
   html {
     font-size: 50%;
@@ -394,16 +419,19 @@ form input {
 
   .header {
     height: auto;
-    padding: 2rem 2rem;
+    padding: 2rem 0;
   }
 
   .header-container {
     flex-direction: column;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
   }
 
   .logo-box {
     font-size: 3rem;
+    position: relative;
+    left: -6rem;
+    /* margin-bottom: 4rem; */
   }
 
   .form-group {
@@ -411,8 +439,8 @@ form input {
   }
 
   form input {
-    max-width: 60rem;
-    font-size: 2.5rem;
+    max-width: 45rem;
+    font-size: 2rem;
   }
 
   .audio-container {
@@ -431,10 +459,14 @@ form input {
   }
 
   .search-trigger {
-    right: 3rem;
+    right: 2rem;
   }
 
   .def-list li {
     font-size: 2rem;
+  }
+
+  .search-btn {
+    font-size: 1.4rem;
   }
 }
