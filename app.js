@@ -18,7 +18,7 @@ let text = "";
 // activating the form by the clicking on the trigger button
 trigger.addEventListener("click", () => {
   form.classList.add("active");
-  formInput.focus();
+  // formInput.focus();
   trigger.style.display = "none";
 });
 
