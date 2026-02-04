@@ -25,20 +25,19 @@ body {
 
 .header {
   background-color: rgb(20, 20, 137);
-  height: 10vh;
+  height: 15vh;
+  padding: 2rem 5rem;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 2rem 10rem;
   position: relative;
 }
 
 .logo-box {
   color: rgb(135, 132, 132);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
 }
 
@@ -65,6 +64,7 @@ form input {
   width: 60rem;
   border-radius: 1rem;
   outline: none;
+  border: none;
   color: rgb(49, 48, 48);
 }
 
