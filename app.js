@@ -8,17 +8,15 @@ const resultContainer = document.querySelector(".result-container");
 
 const loader = document.querySelector(".loader-container");
 
-
-
 hideLoader();
 
 let speechUtObject;
 let text = "";
 
-// activating the form by the clicking on the trigger button
+// activating the form by  clicking on the trigger button
 trigger.addEventListener("click", () => {
   form.classList.add("active");
-  // formInput.focus();
+  formInput.focus();
   trigger.style.display = "none";
 });
 
