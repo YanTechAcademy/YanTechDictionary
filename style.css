@@ -74,7 +74,7 @@ form input {
 
 .search-btn {
   position: absolute;
-  top: 0;
+  top: 0; 
   right: 0;
   height: 100%;
   padding: 0.5rem 1rem;
